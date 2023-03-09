@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  url: 'https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json',
+  access: 'https://www.google.com/'
 };
 
 /*

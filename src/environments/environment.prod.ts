@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  url: 'https://raw.githubusercontent.com/prust/wikipedia-movie-data/master/movies.json',
+  access: 'https://www.google.com/'
 };

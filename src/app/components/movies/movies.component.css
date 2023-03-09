@@ -1,0 +1,9 @@
+table {
+    width: 100%;
+}
+
+.example-button-row-a {
+    display:flex; 
+    justify-content: flex-end; 
+    padding-right: 3px;
+}

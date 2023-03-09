@@ -1,0 +1,23 @@
+.div-img {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 65%;
+}
+
+.example-button-row-b {
+    display:flex; 
+    justify-content: flex-end; 
+    padding-right: 5px;
+    border-radius: 5px;
+}
+
+.example-card-a {
+    justify-content: center;
+    display: flex;
+} 

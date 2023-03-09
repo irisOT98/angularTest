@@ -1,0 +1,60 @@
+<div class="contain">
+    <form [formGroup]="form" fxLayout="column">
+        <h4>Contact Us</h4>
+        <mat-form-field class="example-form-field">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="name">
+            <mat-error *ngIf="name?.hasError('required') && (name?.dirty || name?.touched)">
+                <p>Name required</p>
+            </mat-error>
+
+            <mat-error *ngIf="name?.hasError('pattern') && (name?.dirty || name?.touched)">
+                <p>Name invalid, You can only use letters</p>
+            </mat-error>
+        </mat-form-field>
+    
+        <mat-form-field class="example-form-field">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" formControlName="email">
+            <mat-error *ngIf="email?.hasError('required') && (email?.dirty || email?.touched)">
+                <p>Email required</p>
+            </mat-error>
+    
+            <mat-error *ngIf="email?.hasError('email') && (email?.dirty || email?.touched)">
+                <p>Email invalid</p>
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Telephone</mat-label>
+            <span matPrefix>+1 &nbsp;</span>
+            <input type="tel" matInput #number maxlength="10" placeholder="555-555-1234" formControlName="telephone">
+            <mat-icon matSuffix>mode_edit</mat-icon>
+            <mat-error *ngIf="telephone?.hasError('required') && (telephone?.dirty || telephone?.touched)">
+                <p>Telephono required</p>
+            </mat-error>
+
+            <mat-error *ngIf="telephone?.hasError('pattern') && (telephone?.dirty || telephone?.touched)">
+                <p>Telephono invalid, You can only numbers</p>
+            </mat-error>
+
+            <mat-error *ngIf="telephone?.hasError('minlength') && (telephone?.dirty || telephone?.touched)">
+                <p>Enter at least 10 digits</p>
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Message</mat-label>
+            <input matInput #message maxlength="40" placeholder="Ex. I need help with..." formControlName="msg">
+            <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+            <mat-hint align="end">{{message.value.length}} / 40</mat-hint>
+
+            <mat-error *ngIf="msg?.hasError('required') && (msg?.dirty || msg?.touched)">
+                <p>Message required</p>
+            </mat-error>
+        </mat-form-field>
+        
+        <button mat-button (click)="onSubmit()">Send</button>
+        <button mat-button routerLink="">Cancel</button>
+    </form>
+</div>

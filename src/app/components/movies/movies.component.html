@@ -1,0 +1,50 @@
+<div>
+    <section>
+        <div class="example-button-row-a ">
+            <button mat-raised-button color="primary" routerLink="contact">Contact Us</button>
+        </div><br>
+    </section>
+    <mat-divider></mat-divider>
+    <table mat-table [dataSource]="dataSource">
+        
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef> Title </th>
+        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+
+        <!-- Year Column -->
+        <ng-container matColumnDef="year">
+            <th mat-header-cell *matHeaderCellDef> Year </th>
+            <td mat-cell *matCellDef="let element"> {{element.year}} </td>
+            </ng-container>
+    
+        <!-- Cast Column -->
+        <ng-container matColumnDef="cast">
+        <th mat-header-cell *matHeaderCellDef> Cast </th>
+        <td mat-cell *matCellDef="let element"> 
+            <div *ngFor="let item of element.cast">
+                <p>{{item}}</p>
+            </div> 
+        </td>
+        </ng-container>
+    
+        <!-- Cast Column -->
+        <ng-container matColumnDef="genres">
+            <th mat-header-cell *matHeaderCellDef> Genres </th>
+            <td mat-cell *matCellDef="let element"> 
+                <div *ngFor="let item of element.genres">
+                    <p>{{item}}</p>
+                </div> 
+            </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>  
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons 
+        aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>
